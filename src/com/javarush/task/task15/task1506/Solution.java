@@ -11,7 +11,7 @@ public class Solution {
         print(1);
         print((Integer) 1);
         print((int) 1);
-    }
+        }
 
     public static void print(Integer i) {
         System.out.println("Это Integer");
