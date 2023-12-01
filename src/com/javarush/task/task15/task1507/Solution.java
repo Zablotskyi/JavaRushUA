@@ -14,7 +14,79 @@ public class Solution {
         printMatrix(m, n, (Object) value);
     }
 
-    public static void printMatrix(int m, int n, Object value) {
+    public static void printMatrix(Integer m, Integer n, Object value) {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(value);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printMatrix(double m, double n, Object value) {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(value);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printMatrix(Double m, Double n, Object value) {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(value);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printMatrix(long m, long n, Object value) {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(value);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printMatrix(Long m, Long n, Object value) {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(value);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printMatrix(float m, float n, Object value) {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(value);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printMatrix(Float m, Float n, Object value) {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(value);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printMatrix(short m, short n, Object value) {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(value);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printMatrix(Short m, Short n, Object value) {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 System.out.print(value);
