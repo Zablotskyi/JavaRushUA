@@ -13,10 +13,10 @@ public class Solution {
         //напиште тут ваш код
         String line = null;
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));) {
-            while (true) {
-                line = reader.readLine();
-                if (line.equalsIgnoreCase("exit"))
-                    break;
+            while (!(line = reader.readLine()).equals("exit")) {
+//                line = reader.readLine();
+//                if (line.equalsIgnoreCase("exit"))
+//                    break;
                 if (line.contains("."))
                     print(Double.parseDouble(line));
                 else if (Integer.parseInt(line) > 0 && Integer.parseInt(line) < 128)
@@ -26,9 +26,9 @@ public class Solution {
                 else
                     print(line);
             }
-        } catch (Exception e) {
+        }/* catch (Exception e) {
             print(line);
-        }
+        }*/
     }
 
     public static void print(Double value) {
