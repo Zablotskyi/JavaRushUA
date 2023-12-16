@@ -11,6 +11,24 @@ import java.io.InputStreamReader;
 public class Solution {
     public static void main(String[] args) throws IOException {
         //напиште тут ваш код
+        String line = null;
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));) {
+            while (true) {
+                line = reader.readLine();
+                if (line.equalsIgnoreCase("exit"))
+                    break;
+                if (line.contains("."))
+                    print(Double.parseDouble(line));
+                else if (Integer.parseInt(line) > 0 && Integer.parseInt(line) < 128)
+                    print(Short.parseShort(line));
+                else if (Integer.parseInt(line) <= 0 || Integer.parseInt(line) >= 128)
+                    print(Integer.parseInt(line));
+                else
+                    print(line);
+            }
+        } catch (Exception e) {
+            print(line);
+        }
     }
 
     public static void print(Double value) {
