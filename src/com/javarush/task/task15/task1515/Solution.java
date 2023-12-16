@@ -11,6 +11,21 @@ import java.io.InputStreamReader;
 public class Solution {
     public static int A;
     public static int B;
+    static {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            A = Integer.parseInt(reader.readLine());
+            B = Integer.parseInt(reader.readLine());
+        } catch (IOException e) {
+            System.out.println("Введіть ціле число");;
+        } finally {
+            try {
+                reader.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
 
     public static final int MIN = min(A, B);
 
