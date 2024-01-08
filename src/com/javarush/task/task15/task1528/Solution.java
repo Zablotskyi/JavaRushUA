@@ -24,5 +24,10 @@ public class Solution {
         public Hryvnia getMoney() {
             return this;
         }
+
+        @Override
+        public Object getAmount() {
+            return amount;
+        }
     }
 }
