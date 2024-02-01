@@ -13,6 +13,7 @@ public class Solution {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String url = reader.readLine();
         //напишите тут ваш код
+
     }
 
     public static void alert(double value) {
