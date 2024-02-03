@@ -12,6 +12,10 @@ public class Solution {
 
     public static void main(String[] args) {
         //напишите тут ваш код
+        for (int i = 0; i < 5; i++) {
+            Thread thread;
+            list.add(thread = new Thread(new SpecialThread()));
+        }
     }
 
     public static class SpecialThread implements Runnable {
