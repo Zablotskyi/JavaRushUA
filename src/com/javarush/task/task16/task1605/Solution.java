@@ -28,7 +28,15 @@ public class Solution {
         Date stopPlaying();
     }
 
-    public static class Violin {
+    public static class Violin implements MusicalInstrument {
+        @Override
+        public void run() {
+            Date start = startPlaying();
+            sleepNSeconds(1);
+            Date stop = stopPlaying();
+            long result = stop.getTime() - start.getTime();
+            System.out.println("Playing " + result + " ms");
+        }
         private String owner;
 
         public Violin(String owner) {
