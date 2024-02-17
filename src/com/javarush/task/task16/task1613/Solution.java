@@ -4,6 +4,8 @@ package com.javarush.task.task16.task1613;
 Big Ben clock
 */
 
+import javax.swing.plaf.TableHeaderUI;
+
 public class Solution {
     public static volatile boolean isStopped = false;
 
@@ -39,6 +41,23 @@ public class Solution {
 
         private void printTime() throws InterruptedException {
             //add your code here - добавь код тут
+            Thread.sleep(1000);
+            if (seconds < 59) {
+                this.seconds++;
+            } else if (seconds == 59) {
+                this.seconds = 0;
+                if (minutes < 59) {
+                    this.minutes ++;
+                } else if (minutes == 59) {
+                    this.minutes = 0;
+                    if (hours < 23) {
+                        hours++;
+                    } else if (hours == 23) {
+                        hours = 0;
+                    }
+                }
+            }
+
 
             if (hours == 0 && minutes == 0 && seconds == 0) {
                 System.out.println(String.format("В г. %s сейчас полночь!", cityName));
