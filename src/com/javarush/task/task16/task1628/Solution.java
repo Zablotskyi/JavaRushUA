@@ -46,6 +46,19 @@ public class Solution {
 
         public void run() {
             //напишите тут ваш код
+            try {
+                String str;
+                while (!isInterrupted()) {
+                    if (reader.ready()) {
+                        result.add(reader.readLine());
+                        readStringCount.incrementAndGet();
+                    }
+                }
+                for(String item : result)
+                    System.out.println(item);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         @Override
