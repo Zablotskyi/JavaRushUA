@@ -1,9 +1,7 @@
 package com.javarush.task.task16.task1630;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.util.ArrayList;
 
 /* 
 Последовательный вывод файлов
@@ -14,6 +12,15 @@ public class Solution {
     public static String secondFileName;
 
     //напишите тут ваш код
+    static {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            firstFileName = reader.readLine();
+            secondFileName = reader.readLine();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public static void main(String[] args) throws InterruptedException {
         systemOutPrintln(firstFileName);
@@ -24,6 +31,7 @@ public class Solution {
         ReadFileInterface f = new ReadFileThread();
         f.setFileName(fileName);
         f.start();
+        f.join();
         System.out.println(f.getFileContent());
     }
 
@@ -39,4 +47,30 @@ public class Solution {
     }
 
     //напишите тут ваш код
+    public static class ReadFileThread extends Thread implements ReadFileInterface {
+        private String fullFileName;
+        private String textContent = "";
+        ArrayList<String> list = new ArrayList<>();
+        @Override
+        public void run() {
+            try (BufferedReader fileReader = new BufferedReader(new FileReader(fullFileName))) {;
+                while (fileReader.ready()) {
+                    list.add(fileReader.readLine());
+                }
+            } catch(FileNotFoundException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        @Override
+        public void setFileName(String fullFileName) {
+            this.fullFileName = fullFileName;
+        }
+
+        @Override
+        public String getFileContent() {
+            return list == null ? "" : String.join(" ", list);
+        }
+    }
 }
