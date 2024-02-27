@@ -43,11 +43,7 @@ public class Solution {
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {
-                try {
-                    throw new InterruptedException("InterruptedException");
-                } catch (InterruptedException ex) {
-                    throw new RuntimeException(ex);
-                }
+                System.out.println(e);
             }
         }
     }
@@ -67,15 +63,17 @@ public class Solution {
     }
 
     public static class MyThread4 extends Thread implements Message {
+        private boolean isCanceled = true;
         @Override
         public void run() {
-            if (isAlive())
-                showWarning();
+            while (isCanceled){
+
+            }
         }
 
         @Override
         public void showWarning() {
-            Thread.currentThread().interrupt();
+            isCanceled = false;
         }
     }
 
@@ -85,8 +83,10 @@ public class Solution {
             Scanner scanner = new Scanner(System.in);
             String number = "";
             int sum = 0;
-            while (!number.equals("N")) {
+            while (true) {
                 number = scanner.nextLine();
+                if (number.equals("N"))
+                    break;
                 sum = sum + Integer.parseInt(number);
             }
             System.out.println(sum);
