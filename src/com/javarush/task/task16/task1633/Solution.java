@@ -16,6 +16,9 @@ public class Solution {
         threadA.start();
         threadB.start();
 
+        threadA.setUncaughtExceptionHandler(handler);
+        threadB.setUncaughtExceptionHandler(handler);
+
         threadA.interrupt();
         threadB.interrupt();
     }
