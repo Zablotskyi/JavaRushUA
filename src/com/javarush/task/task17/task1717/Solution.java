@@ -16,22 +16,20 @@ public class Solution {
 
     public static synchronized void printInfo(String name, int age) {
         for (int i = 1; i <= 5; i++) {
-            synchronized (Solution.class) {
-                System.out.print(i);
-                System.out.print(".");
-                System.out.print(" ");
-                System.out.print("Меня");
-                System.out.print(" ");
-                System.out.print("зовут");
-                System.out.print(" ");
-                System.out.print(name);
-                System.out.print(",");
-                System.out.print(" ");
-                System.out.print("мне");
-                System.out.print(" ");
-                System.out.print(age);
-                System.out.println();
-            }
+            System.out.print(i);
+            System.out.print(".");
+            System.out.print(" ");
+            System.out.print("Меня");
+            System.out.print(" ");
+            System.out.print("зовут");
+            System.out.print(" ");
+            System.out.print(name);
+            System.out.print(",");
+            System.out.print(" ");
+            System.out.print("мне");
+            System.out.print(" ");
+            System.out.print(age);
+            System.out.println();
         }
     }
 
