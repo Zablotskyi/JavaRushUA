@@ -44,4 +44,15 @@ public class Person {
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
+
+    @Override
+    public String toString() {
+        String sex = "";
+        if (getSex().equals(Sex.MALE))
+            sex = "м";
+        else if (getSex().equals(Sex.FEMALE)) {
+            sex = "ж";
+        }
+        return getName() + " " + sex;
+    }
 }
