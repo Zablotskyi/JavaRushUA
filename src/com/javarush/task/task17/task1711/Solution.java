@@ -69,7 +69,7 @@ public class Solution {
         if (arrays[0].equals("-c")) {
             int count = 1;
             for (int i = 0; i < arrays.length; i++) {
-                arrayParameters[i][count];
+//                arrayParameters[i][count];
                 count++;
                 if (count == 3)
                     count = 0;
