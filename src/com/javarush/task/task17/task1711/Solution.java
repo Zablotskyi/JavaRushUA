@@ -71,6 +71,7 @@ public class Solution {
                 for (int i = 0; i < onePeopleInRow[0].length; i++) {
                     for (int j = 0; j <allPeople.size(); j++) {
                         if (allPeople.get(j) != null)
+                            if (Integer.parseInt(onePeopleInRow[0][i]) == j)
                             System.out.println(allPeople.get(j).toString() + " " + convertDataToDisplay(allPeople.get(j).getBirthDate()));
                     }
                 }
