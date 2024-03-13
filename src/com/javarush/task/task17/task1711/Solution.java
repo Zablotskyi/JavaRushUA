@@ -1,6 +1,5 @@
 package com.javarush.task.task17.task1711;
 
-import java.sql.SQLOutput;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -41,62 +40,68 @@ public class Solution {
                 }
             }
             case "-u": {
-//                for (int i = 0; i < allPeople.size(); i++) {
-//                    if (i == Integer.parseInt(args[1])) {
-//                        allPeople.get(i).setName(args[2]);
-//                        if (args[3].equals("м"))
-//                            allPeople.get(i).setSex(Sex.MALE);
-//                        if (args[3].equals("ж"))
-//                            allPeople.get(i).setSex(Sex.FEMALE);
-//                        allPeople.get(i).setBirthDate(updateBirthday(args));
-//                    }
-//                }
-                for (Person person : allPeople)
-                    System.out.println(person.toString());
+                int id;
+                for (int i = 0; i < onePeopleInRow.length; i++) {
+                    if (onePeopleInRow[i][0] != null) {
+                        if (!onePeopleInRow[i][0].isEmpty()) {
+                            id = Integer.parseInt(onePeopleInRow[i][0]);
+                            for (int j = 0; j < allPeople.size(); j++) {
+                                if (id == j) {
+                                    allPeople.get(j).setName(onePeopleInRow[i][1]);
+                                    if (onePeopleInRow[i][2].equals("м"))
+                                        allPeople.get(j).setSex(Sex.MALE);
+                                    if (onePeopleInRow[i][2].equals("ж"))
+                                        allPeople.get(j).setSex(Sex.FEMALE);
+                                    allPeople.get(j).setBirthDate(updateBirthday(onePeopleInRow[i][3]));
+                                }
+                            }
+                        }
+                    }
+                }
                 break;
             }
             case "-d": {
-//                for (int i = 0; i < allPeople.size(); i++) {
-//                    if (i == Integer.parseInt(args[1])) {
-//                        allPeople.get(i).setName(null);
-//                        allPeople.get(i).setSex(null);
-//                        allPeople.get(i).setBirthDate(null);
-//                    }
-//                }
-                for (Person person : allPeople)
-                    System.out.println(person.toString());
+                int id;
+                for (int i = 0; i < onePeopleInRow[0].length; i++) {
+                    if (onePeopleInRow[0][i] != null) {
+                        id = Integer.parseInt(onePeopleInRow[0][i]);
+                        for (int j = 0; j < allPeople.size(); j++) {
+                            if (id == j) {
+                                allPeople.get(j).setName(null);
+                                allPeople.get(j).setSex(null);
+                                allPeople.get(j).setBirthDate(null);
+                            }
+                        }
+                    }
+                }
                 break;
             }
             case "-i": {
+                int id;
                 for (int i = 0; i < onePeopleInRow[0].length; i++) {
-                    for (int j = 0; j <allPeople.size(); j++) {
-                        if (allPeople.get(j) != null)
-                            if (Integer.parseInt(onePeopleInRow[0][i]) == j)
-                            System.out.println(allPeople.get(j).toString() + " " + convertDataToDisplay(allPeople.get(j).getBirthDate()));
+                    if (onePeopleInRow[0][i] != null) {
+                        id = Integer.parseInt(onePeopleInRow[0][i]);
+                        for (int j = 0; j < allPeople.size(); j++) {
+                            if (id == j)
+                                System.out.println(allPeople.get(j).toString() + " " + convertDataToDisplay(allPeople.get(j).getBirthDate()));
+                        }
                     }
                 }
-//                for (int i = 0; i < allPeople.size(); i++) {
-//                    if (i == Integer.parseInt(args[1]))
-//                        System.out.println(allPeople.get(i).toString() + " " + convertDataToDisplay(allPeople.get(i).getBirthDate()));
-//                }
-                for (Person person : allPeople)
-                    System.out.println(person.toString());
-                break;
             }
         }
     }
 
     /*Utilities methods*/
-    protected static String[][] parseLineToArray(String[] arrays) {
-        String[][] arrayParameters = new String[arrays.length][arrays.length];
-        switch (arrays[0]) {
+    protected static String[][] parseLineToArray(String[] argArray) {
+        String[][] arrayParameters = new String[argArray.length][argArray.length];
+        switch (argArray[0]) {
             case "-c": {
                 int count = 1;
-                for (int i = 0; i < arrays.length; i++) {
-                    if (count == arrays.length)
+                for (int i = 0; i < argArray.length; i++) {
+                    if (count == argArray.length)
                         break;
                     for (int j = 0; j < 3; j++) {
-                        arrayParameters[i][j] = arrays[count];
+                        arrayParameters[i][j] = argArray[count];
                         count++;
                     }
                 }
@@ -105,20 +110,23 @@ public class Solution {
             }
             case "-u": {
                 int count = 1;
-                for (int i = 0; i < arrays.length; i++) {
-                    if (count == arrays.length)
+                for (int i = 0; i < argArray.length; i++) {
+                    if (count == argArray.length)
                         break;
                     for (int j = 0; j < 4; j++) {
-                        arrayParameters[i][j] = arrays[count];
+                        arrayParameters[i][j] = argArray[count];
                         count++;
-                        System.out.println(arrayParameters[i][j]);
                     }
                 }
                 break;
             }
             case "-d", "-i": {
-                for (int i = 1; i < arrays.length; i++) {
-                    arrayParameters[0][i] = arrays[i];
+                int count = 1;
+                for (int i = 0; i < argArray.length; i++) {
+                    arrayParameters[0][i] = argArray[count];
+                    count++;
+                    if (count == argArray.length)
+                        break;
                 }
                 break;
             }
@@ -143,8 +151,8 @@ public class Solution {
         return dateString;
     }
 
-    public static Date updateBirthday(String[] array) {
-        String dateString = array[array.length - 1];
+    public static Date updateBirthday(String data) {
+        String dateString = data;
         Date date;
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         try {

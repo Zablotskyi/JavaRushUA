@@ -48,9 +48,9 @@ public class Person {
     @Override
     public String toString() {
         String sex = "";
-        if (getSex().equals(com.javarush.task.task17.task1710.Sex.MALE))
+        if (getSex().equals(Sex.MALE))
             sex = "м";
-        else if (getSex().equals(com.javarush.task.task17.task1710.Sex.FEMALE)) {
+        else if (getSex().equals(Sex.FEMALE)) {
             sex = "ж";
         }
         return getName() + " " + sex;
