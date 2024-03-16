@@ -23,6 +23,9 @@ public class Solution {
     public static void main(String[] args) {
         //start here - начни тут
         //-c Миронов м 15/04/1990 Миронова ж 25/04/1997
+        //-u 0 Миронов м 15/04/1990 1 Миронова ж 25/04/1997
+        //-d 0 1
+        //-i 1
 
         onePeopleInRow = parseLineToArray(args);
         switch (args[0]) {
