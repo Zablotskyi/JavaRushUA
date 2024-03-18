@@ -24,12 +24,24 @@ public class Solution {
         isStopped = true;
     }
 
-    public static class Apteka {
-
+    public static class Apteka implements Runnable {
+        @Override
+        public void run() {
+            drugsController.sell(getRandomDrug(), getRandomCount());
+            while (!isStopped) {
+                waitAMoment();
+            }
+        }
     }
 
-    public static class Person {
-
+    public static class Person implements Runnable {
+        @Override
+        public void run() {
+            drugsController.buy(getRandomDrug(), getRandomCount());
+            while (!isStopped) {
+                waitAMoment();
+            }
+        }
     }
 
     public static int getRandomCount() {
@@ -42,7 +54,7 @@ public class Solution {
         return drugs.get(index);
     }
 
-    private static void waitAMoment() {
+    private synchronized static void waitAMoment() {
         try {
             Thread.sleep(100);
         } catch (InterruptedException e) {
