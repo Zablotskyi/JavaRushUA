@@ -31,16 +31,8 @@ public class Solution {
     }
 
     public void joinData() throws CorruptedDataException {
-        int count = 0;
-        for (int i = 0; i < forRemoveLines.size(); i++) {
-            for (int j = 0; j < allLines.size(); j++) {
-                if (forRemoveLines.get(i).equals(allLines.get(j)))
-                    count++;
-                allLines.set(j, null);
-            }
-        }
-        if (count == forRemoveLines.size())
-            allLines.clear();
+        if (allLines.containsAll(forRemoveLines))
+            allLines.removeAll(forRemoveLines);
         else {
             allLines.clear();
             throw new CorruptedDataException();
