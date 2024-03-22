@@ -14,10 +14,8 @@ public class Solution {
         String fileName = scanner.nextLine();
 
         FileInputStream fis = new FileInputStream(fileName);
-        byte[] array = new byte[1024];
-        while (fis.available() > 0) {
-            fis.read(array);
-        }
+        byte[] array = new byte[fis.available()];
+        fis.read(array);
         Arrays.sort(array);
         System.out.println(array[0]);
         scanner.close();

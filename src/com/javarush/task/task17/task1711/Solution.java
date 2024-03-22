@@ -123,7 +123,17 @@ public class Solution {
                 }
                 break;
             }
-            case "-d", "-i": {
+            case "-d": {
+                int count = 1;
+                for (int i = 0; i < argArray.length; i++) {
+                    arrayParameters[0][i] = argArray[count];
+                    count++;
+                    if (count == argArray.length)
+                        break;
+                }
+                break;
+            }
+            case "-i": {
                 int count = 1;
                 for (int i = 0; i < argArray.length; i++) {
                     arrayParameters[0][i] = argArray[count];

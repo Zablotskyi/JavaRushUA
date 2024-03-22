@@ -1,13 +1,10 @@
-[main ca983b7] completed the task1721 Транзакционность
- 1 file changed, 2 insertions(+), 10 deletions(-)
 padre@padre-HP-ZBook-15-G4:~/javarush/2097384/javarush-project$ git push
-Перерахування обʼєктів: 17, готово.
-Підрахунок обʼєктів: 100% (17/17), готово.
+Перерахування обʼєктів: 34, готово.
+Підрахунок обʼєктів: 100% (34/34), готово.
 Дельта компресія з використанням до 8 потоків
-Компресія обʼєктів: 100% (7/7), готово.
-Запис обʼєктів: 100% (9/9), 724 байти | 181.00 КіБ/с, готово.
-Всього 9 (дельта 5), повторно використано 0 (дельта 0), повторно використано пакунків 0
-remote: Resolving deltas: 100% (5/5), completed with 5 local objects.
+Компресія обʼєктів: 100% (13/13), готово.
+Запис обʼєктів: 100% (20/20), 2.57 КіБ | 877.00 КіБ/с, готово.
+Всього 20 (дельта 4), повторно використано 0 (дельта 0), повторно використано пакунків 0
+remote: Resolving deltas: 100% (4/4), completed with 4 local objects.
 To github.com:Zablotskyi/JavaRushUA.git
-   c35f455..ca983b7  main -> main
-padre@padre-HP-ZBook-15-G4:~/javarush/2097384/javarush-project$
+   0958256..75af7d8  main -> main
